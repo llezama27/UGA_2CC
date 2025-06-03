@@ -562,6 +562,20 @@ def mostrar_ayuda():
 movimientos_replay = []
 #Aun me falta pensarla :V ya que no se como guardar los movimientos
 
+# sumar mas de 2048
+niveles_mostrados = set()
+
+def victorias(tablero):
+    global niveles_mostrados
+    
+for fila in tablero:
+    for celda in fila:
+        if isinstance (celda , int) and celda >= 2048 and (celda & (celda -1))== 0:
+            if celda not in niveles_mostrados:
+                print ("Ganaste, alcanzaste ", celda )
+                niveles_mostrados.add(celda)
+
+
 
 def mostrar_menu():
     ventana = tk.Tk()
